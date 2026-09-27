@@ -14,6 +14,16 @@ Obe različici rešujeta le običajne sudokuje 9×9. Poleg tega `dir2` predposta
 | `dir1` | 100/100 | 12,5 ms | 75 µs |
 | `dir2` | 100/100 | 1,9 ms | 12 µs |
 
+![Hitrost oddanih rešitev](hitrost.png)
+
+Graf predmeta (imena drugih študentov so zabrisana). Na osi y je povprečje razmerja
+`čas / najhitrejši oddani čas na tem sudokuju` čez 100 običajnih sudokujev, v logaritemski skali.
+DeL2 in DeLu sta moji oddaji (≈ 2 in ≈ 9); naslednja oddana rešitev je pri ≈ 14.
+
+Testni sudokuji (`sudokuji/*.sdk`, rešitve v `.out`) in skripta za merjenje (`benchmarks_generate.py`)
+so v [repozitoriju predmeta](https://github.com/matijapretnar/programiranje-1/tree/1335da3/domaca-naloga).
+Skripta čas deli s časom referenčnega urejanja, zato so rezultati neodvisni od računalnika.
+
 ## `dir1`: rekurzija s števci
 
 - Stanje je tabela dimenzij 9×9×10. Za celico `(i, j)` in števko `k` hrani, v koliko od treh skupin (vrstica, stolpec, blok 3×3) je `k` še prosta, `k` je kandidat natanko tedaj, ko je vrednost enaka 3. Na indeksu 0 je število veljavnih kandidatov celice.
@@ -38,3 +48,4 @@ Prevod in zagon:
 cd dir2
 ocamlopt model.ml solver.ml main.ml -o sudoku
 ./sudoku pot/do/sudoku.sdk
+```
